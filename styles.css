@@ -1,0 +1,653 @@
+:root {
+    --primary-color: #FF5226; /* Red-Orange */
+    --dark-bg: #0c1220;
+    --card-bg: #1a2439;
+    --accent: #0ea5e9;
+    --light: #f8fafc;
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    --border-radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Hagia Pro', 'Montserrat', sans-serif;
+    color: var(--light);
+    background-color: var(--dark-bg);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Hagia Pro', 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 200px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), #d84315);
+    color: white;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(12, 18, 32, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    padding: 12px 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    transition: var(--transition);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: var(--transition);
+    position: relative;
+    padding: 8px 0;
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: var(--transition);
+}
+
+.nav-links a:hover:after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+.mobile-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--light);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(12, 18, 32, 0.85), rgba(12, 18, 32, 0.95)), 
+                url('./coverrr-2\ -\ Dunamis\ Shiloh\ Okonwor.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: saturate(1.2);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 900px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0 20px;
+    z-index: 10;
+}
+
+.hero h1 {
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.1;
+    font-family: 'Hagia Pro', sans-serif;
+}
+
+.hero p {
+    font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+    margin-bottom: 50px;
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+    font-family: 'Codec Pro', sans-serif;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+}
+
+/* About Section */
+.about {
+    padding: 120px 0;
+    background: linear-gradient(to bottom, var(--dark-bg), #0a1629);
+    position: relative;
+    overflow: hidden;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230a1629'/%3E%3C/svg%3E");
+    opacity: 0.2;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.section-title {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    font-family: 'Hagia Pro', sans-serif;
+}
+
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.85;
+    font-family: 'Codec Pro', sans-serif;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    line-height: 1.8;
+    font-family: 'Codec Pro', sans-serif;
+}
+
+/* Speakers Section */
+.speakers {
+    padding: 120px 0;
+    background-color: var(--card-bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.speaker-card {
+    background: linear-gradient(145deg, #1e2a4a, #16213e);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    z-index: 2;
+    max-width: 320px;
+    width: 100%;
+}
+
+.speaker-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.speaker-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    margin: 30px auto 20px;
+    overflow: hidden;
+    position: relative;
+    transition: var(--transition);
+}
+
+.speaker-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.speaker-card:hover .speaker-img {
+    border-color: var(--light);
+    transform: scale(1.05);
+}
+
+.speaker-info {
+    padding: 0 25px 30px;
+    text-align: center;
+}
+
+.speaker-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    font-family: 'Hagia Pro', sans-serif;
+    color: var(--light);
+}
+
+.speaker-info .role {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.speaker-info p {
+    font-size: 1rem;
+    opacity: 0.9;
+    font-family: 'Codec Pro', sans-serif;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Register Section */
+.register {
+    padding: 140px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.register::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(12, 18, 32, 0.9), rgba(12, 18, 32, 0.95)), 
+                url('./web-cover-2\ -\ Dunamis\ Shiloh\ Okonwor.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.register-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.register h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    font-family: 'Hagia Pro', sans-serif;
+}
+
+.register p {
+    font-size: 1.3rem;
+    margin-bottom: 50px;
+    font-weight: 300;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+    font-family: 'Codec Pro', sans-serif;
+}
+
+/* Footer */
+.footer {
+    background-color: #080c16;
+    padding: 80px 0 40px;
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-title {
+    font-size: 1.4rem;
+    margin-bottom: 25px;
+    color: var(--primary-color);
+    font-family: 'Hagia Pro', sans-serif;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: var(--light);
+    text-decoration: none;
+    transition: var(--transition);
+    opacity: 0.8;
+    font-family: 'Codec Pro', sans-serif;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    opacity: 1;
+}
+
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--light);
+    font-size: 1.4rem;
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0.7;
+    font-family: 'Codec Pro', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(12, 18, 32, 0.98);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        clip-path: circle(0px at top right);
+        transition: clip-path 0.6s ease-in-out;
+        display: flex;
+    }
+    
+    .nav-links.active {
+        clip-path: circle(150% at top right);
+    }
+    
+    .nav-links li {
+        margin: 15px 0;
+    }
+    
+    .mobile-toggle {
+        display: block;
+    }
+    
+    .hero {
+        min-height: 600px;
+    }
+    
+    .btn-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .about, .speakers, .register {
+        padding: 80px 0;
+    }
+    
+    .speaker-card {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        width: 100%;
+        min-width: auto;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .about-content p {
+        font-size: 1.1rem;
+    }
+    
+    .speaker-info h3 {
+        font-size: 1.4rem;
+    }
+    
+    .speaker-info .role {
+        font-size: 1rem;
+    }
+    
+    .register h2 {
+        font-size: 2.2rem;
+    }
+    
+    .register p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .speakers-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+}
+
+@media (max-width: 992px) {
+    .speakers {
+        padding: 90px 0;
+    }
+    
+    .speakers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .speaker-card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .speakers {
+        padding: 70px 0;
+    }
+    
+    .speaker-img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .speaker-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .speaker-info .role {
+        font-size: 0.95rem;
+    }
+    
+    .speaker-info p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .speakers-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .speaker-card {
+        max-width: 320px;
+    }
+    
+    .speaker-img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 400px) {
+    .speaker-info {
+        padding: 0 20px 25px;
+    }
+    
+    .speaker-img {
+        width: 130px;
+        height: 130px;
+        margin: 25px auto 15px;
+    }
+}
