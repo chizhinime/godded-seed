@@ -335,6 +335,7 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 8px;
     font-family: 'Hagia Pro', sans-serif;
     color: var(--light);
+    text-align: center;
 }
 
 .speaker-info .role {
@@ -343,6 +344,7 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 15px;
     font-size: 1rem;
     line-height: 1.4;
+    text-align: center;
 }
 
 .speaker-info p {
