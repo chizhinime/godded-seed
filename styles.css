@@ -163,6 +163,7 @@ h1, h2, h3, h4, h5 {
                 url('./coverrr-2\ -\ Dunamis\ Shiloh\ Okonwor.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     filter: saturate(1.2);
 }
 
@@ -371,6 +372,7 @@ h1, h2, h3, h4, h5 {
                 url('./web-cover-2\ -\ Dunamis\ Shiloh\ Okonwor.jpg');
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     z-index: -1;
 }
 
