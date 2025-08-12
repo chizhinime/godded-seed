@@ -327,7 +327,7 @@ h1, h2, h3, h4, h5 {
 
 .speaker-info {
     padding: 0 25px 30px;
-    text-align: center;
+    text-align: justify;
 }
 
 .speaker-info h3 {
