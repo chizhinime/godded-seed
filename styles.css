@@ -177,13 +177,13 @@ h1, h2, h3, h4, h5 {
 }
 
 .hero img {
-    max-width: 80%;      
+    max-width: 100%;      
     height: auto;
 }
 
 @media (min-width: 768px) {
     .hero img {
-        max-width: 40%;
+        max-width: 50%;
     }
 }
 
