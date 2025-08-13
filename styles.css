@@ -176,6 +176,17 @@ h1, h2, h3, h4, h5 {
     z-index: 10;
 }
 
+.hero img {
+    max-width: 80%;      
+    height: auto;
+}
+
+@media (min-width: 768px) {
+    .hero img {
+        max-width: 40%;
+    }
+}
+
 .hero h1 {
     text-transform: uppercase;
     letter-spacing: 4px;
