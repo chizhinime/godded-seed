@@ -177,13 +177,13 @@ h1, h2, h3, h4, h5 {
 }
 
 .hero img {
-    max-width: 70%;      
+    max-width: 80%;      
     height: auto;
 }
 
 @media (min-width: 768px) {
     .hero img {
-        max-width: 35%;
+        max-width: 40%;
     }
 }
 
@@ -194,6 +194,7 @@ h1, h2, h3, h4, h5 {
     font-size: 2.8rem;
     margin-bottom: 20px;
     font-family: 'Hagia Pro', sans-serif;
+    padding: 20px;
 }
 
 .hero p {
