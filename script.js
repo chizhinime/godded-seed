@@ -59,18 +59,40 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-function toggleReadMore() {
-    let dots = document.getElementById("dots");
-    let moreText = document.getElementById("more");
-    let btn = document.getElementById("readMoreBtn");
+document.addEventListener("DOMContentLoaded", function() {
+    const maxLength = 120; // characters before truncating
+    const readMoreTexts = document.querySelectorAll(".readmore-text");
 
-    if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btn.innerHTML = "Read more";
-        moreText.style.display = "none";
-    } else {
-        dots.style.display = "none";
-        btn.innerHTML = "Read less";
-        moreText.style.display = "inline";
-    }
-}
+    readMoreTexts.forEach(textEl => {
+        let fullText = textEl.innerHTML.trim();
+
+        if (fullText.length > maxLength) {
+            let shortText = fullText.substring(0, maxLength);
+            let remainingText = fullText.substring(maxLength);
+
+            textEl.innerHTML = `
+                ${shortText}<span class="dots">...</span>
+                <span class="more-text" style="display:none;">${remainingText}</span>
+                <button class="read-more-btn">Read more</button>
+            `;
+        }
+    });
+
+    document.body.addEventListener("click", function(e) {
+        if (e.target.classList.contains("read-more-btn")) {
+            let btn = e.target;
+            let dots = btn.parentElement.querySelector(".dots");
+            let moreText = btn.parentElement.querySelector(".more-text");
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                moreText.style.display = "none";
+                btn.textContent = "Read more";
+            } else {
+                dots.style.display = "none";
+                moreText.style.display = "inline";
+                btn.textContent = "Read less";
+            }
+        }
+    });
+});
