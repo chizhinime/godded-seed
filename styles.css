@@ -479,6 +479,17 @@ h1, h2, h3, h4, h5 {
     opacity: 0.7;
     font-family: 'Codec Pro', sans-serif;
 }
+#readMoreBtn {
+    background: none;
+    border: none;
+    color: #FF5226;
+    cursor: pointer;
+    padding: 0;
+    font-size: 14px;
+}
+#readMoreBtn:hover {
+    text-decoration: underline;
+}
 
 /* Responsive Design */
 @media (max-width: 992px) {
