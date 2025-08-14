@@ -58,3 +58,19 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 });
+
+function toggleReadMore() {
+    let dots = document.getElementById("dots");
+    let moreText = document.getElementById("more");
+    let btn = document.getElementById("readMoreBtn");
+
+    if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btn.innerHTML = "Read more";
+        moreText.style.display = "none";
+    } else {
+        dots.style.display = "none";
+        btn.innerHTML = "Read less";
+        moreText.style.display = "inline";
+    }
+}
