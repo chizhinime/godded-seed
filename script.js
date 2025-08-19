@@ -96,3 +96,65 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// Testimonial slider functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Testimonial slider functionality
+    const slider = document.querySelector('.testimonials-slider');
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    const prevArrow = document.querySelector('.testimonial-arrow.prev');
+    const nextArrow = document.querySelector('.testimonial-arrow.next');
+    
+    let currentSlide = 0;
+    const slideCount = slides.length;
+    
+    // Function to update slide position
+    function updateSlide() {
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Update active dot
+        dots.forEach((dot, index) => {
+            if (index === currentSlide) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+    }
+    
+    // Next slide function
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slideCount;
+        updateSlide();
+    }
+    
+    // Previous slide function
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slideCount) % slideCount;
+        updateSlide();
+    }
+    
+    // Add event listeners to arrows
+    if (nextArrow) {
+        nextArrow.addEventListener('click', nextSlide);
+    }
+    
+    if (prevArrow) {
+        prevArrow.addEventListener('click', prevSlide);
+    }
+    
+    // Add event listeners to dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentSlide = index;
+            updateSlide();
+        });
+    });
+    
+    // Auto-advance slides every 5 seconds
+    setInterval(nextSlide, 5000);
+    
+    // Initialize first slide as active
+    updateSlide();
+});
